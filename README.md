@@ -24,7 +24,7 @@ npm install
 expo start --web
 ```
 ## Structure
-
+``` bash
 ├───assets 
 ├───components
 │   ├───containers
@@ -33,7 +33,7 @@ expo start --web
 ├───pages
 ├───services
 └───styles
-
+```
 ## Running the tests
 
 TODO
