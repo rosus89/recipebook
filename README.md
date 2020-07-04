@@ -49,4 +49,5 @@ TODO
 * [React Native](https://reactnative.dev/) - Framework
 * [React Navigation](https://reactnavigation.org/) - Manages Navigation
 * [React Native Elements](https://react-native-elements.github.io/react-native-elements/) - Prototyping elements
+* [Redux](https://redux.js.org/) - State Management
 
