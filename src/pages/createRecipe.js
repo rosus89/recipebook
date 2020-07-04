@@ -3,7 +3,7 @@ import { Platform, StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Card, ListItem, Button, Divider  } from 'react-native-elements';
 
-export default function CreateRecipeScreen() {
+export default function CreateRecipe() {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Input

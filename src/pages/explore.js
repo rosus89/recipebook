@@ -1,10 +1,21 @@
 import * as React from 'react';
-import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { SearchBar } from 'react-native-elements';
 
 export default function Explore({ navigation }) {
+    const [search, setSearch] = React.useState('');
+
+    const updateSearch = (search) => {
+        setSearch( search );
+    };
+
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Home Screen</Text>
+        <View>
+            <SearchBar
+                placeholder="Search Recipe"
+                onChangeText={updateSearch}
+                value={search}
+            />
         </View>
     );
 }
