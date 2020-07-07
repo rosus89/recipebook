@@ -1,55 +1,59 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import { LargeTile } from 'components/elements';
-import {List} from 'components/containers';
+import { LargeTile, HeaderButton } from 'components/elements';
+import {exploreData} from '../../mockData';
+import ListRecipes from './listRecipes';
+import { createStackNavigator } from '@react-navigation/stack';
+const Stack = createStackNavigator();
 
-export default function Explore({ navigation }) {
+function ExploreView({ navigation }) {
     const [search, setSearch] = React.useState('');
-    
+
     const updateSearch = (search) => {
         setSearch( search );
     };
-    let mockdata = [
-        {
-            image: "https://hips.hearstapps.com/del.h-cdn.co/assets/17/15/1492181920-delish-sticky-orange-chicken-2.jpg",
-            title: "Cuisine"
-        },
-        {
-            image: "https://hips.hearstapps.com/del.h-cdn.co/assets/17/15/1492181920-delish-sticky-orange-chicken-2.jpg",
-            title: "Occasion"
-        },
-        {
-            image: "https://hips.hearstapps.com/del.h-cdn.co/assets/17/15/1492181920-delish-sticky-orange-chicken-2.jpg",
-            title: "Ingredients"
-        },
-        {
-            image: "https://hips.hearstapps.com/del.h-cdn.co/assets/17/15/1492181920-delish-sticky-orange-chicken-2.jpg",
-            title: "Flavour"
-        },
-        {
-            image: "https://hips.hearstapps.com/del.h-cdn.co/assets/17/15/1492181920-delish-sticky-orange-chicken-2.jpg",
-            title: "Fitness"
-        },
-        {
-            image: "https://hips.hearstapps.com/del.h-cdn.co/assets/17/15/1492181920-delish-sticky-orange-chicken-2.jpg",
-            title: "Most Popular"
-        }
+    
+    let list = exploreData.map((item) => (
+        <LargeTile
+            key={item.title}
+            image={item.image}
+            title={item.title}
+            onPress={() => navigation.navigate('ListRecipes', item.title )}/>
+            ))
+        return (
+            <View style = {{
+                flex:1
+            }}>
+                <SearchBar
+                    placeholder="Search Recipe"
+                    onChangeText={updateSearch}
+                    value={search}
+                />
+                {list}
+            </View>
+        );
+}
 
-    ]
+export default function Explore(navigation){
     return (
-        <View>
-            <SearchBar
-                placeholder="Search Recipe"
-                onChangeText={updateSearch}
-                value={search}
-            />
-            <List
-                data={mockdata}
-            >
-                <LargeTile image title/>
-            </List>
+        <Stack.Navigator>
+            <Stack.Screen
+                name="Explore"
+                component={ExploreView}
+                options={{
+                    // headerTitle: props => <LogoTitle {...props} />,
+                    headerRight: () => (
+                        <HeaderButton
+                            onPress={() => alert('opens side nav')}
+                        />
 
-        </View>
-    );
+                    ),
+                }}
+            />
+            <Stack.Screen
+                name="ListRecipes"
+                component={ListRecipes} />
+        </Stack.Navigator>
+    )
 }
