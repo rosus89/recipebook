@@ -37,19 +37,24 @@ function ExploreView({ navigation }) {
 
 export default function Explore(navigation){
     return (
-        <Stack.Navigator>
+        <Stack.Navigator
+            screenOptions={{
+                headerTitleStyle: { alignSelf: 'center' },
+                // headerTitle: props => <LogoTitle {...props} />,
+                headerRight: () => (
+                    <HeaderButton
+                        onPress={() => alert('opens side nav')}
+                    />
+
+                )
+            }}
+        >
             <Stack.Screen
                 name="Explore"
                 component={ExploreView}
-                options={{
-                    // headerTitle: props => <LogoTitle {...props} />,
-                    headerRight: () => (
-                        <HeaderButton
-                            onPress={() => alert('opens side nav')}
-                        />
-
-                    ),
-                }}
+                // options={{
+                    
+                // }}
             />
             <Stack.Screen
                 name="ListRecipes"
