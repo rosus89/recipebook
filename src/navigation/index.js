@@ -1,5 +1,7 @@
-import Navigator from './navigator'
+import Navigator from './navigator';
+import SideNavigator from './sideNavigator';
 
 export {
-    Navigator
+    Navigator,
+    SideNavigator
 }

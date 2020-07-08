@@ -5,7 +5,9 @@ import { LargeTile, HeaderButton } from 'components/elements';
 import {exploreData} from '../../mockData';
 import ListRecipes from './listRecipes';
 import { createStackNavigator } from '@react-navigation/stack';
-import {Colors,Mixins}  from 'styles';
+import {Colors}  from 'styles';
+
+const colors = Colors();
 const Stack = createStackNavigator();
 
 function ExploreView({ navigation }) {
@@ -44,8 +46,7 @@ function ExploreView({ navigation }) {
             </View>
         );
 }
-console.log(Mixins)
-const colors = Colors()
+
 export default function Explore(navigation){
  
     return (
