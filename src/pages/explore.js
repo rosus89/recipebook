@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { View } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import { LargeTile, HeaderButton } from 'components/elements';
 import {exploreData} from '../../mockData';
 import ListRecipes from './listRecipes';
 import { createStackNavigator } from '@react-navigation/stack';
+import {Colors,Mixins}  from 'styles';
 const Stack = createStackNavigator();
 
 function ExploreView({ navigation }) {
@@ -29,18 +30,33 @@ function ExploreView({ navigation }) {
                     placeholder="Search Recipe"
                     onChangeText={updateSearch}
                     value={search}
+                    containerStyle ={{
+                        //todo
+                    }}
+                    inputContainerStyle ={{
+                        //todo
+                    }}
+                    inputStyle={{
+                        backgroundColor:'#FFF'
+                    }}
                 />
                 {list}
             </View>
         );
 }
-
+console.log(Mixins)
+const colors = Colors()
 export default function Explore(navigation){
+ 
     return (
         <Stack.Navigator
             screenOptions={{
-                headerTitleStyle: { alignSelf: 'center' },
-                // headerTitle: props => <LogoTitle {...props} />,
+                headerTitleStyle: {
+                    alignSelf: 'center' 
+                },
+                headerStyle: {
+                    backgroundColor: colors.PRIMARY
+                },
                 headerRight: () => (
                     <HeaderButton
                         onPress={() => alert('opens side nav')}

@@ -1,14 +1,25 @@
-export const PRIMARY = '#1779ba';
-export const SECONDARY = '#767676';
-export const WHITE = '#FFFFFF';
-export const BLACK = '#000000';
+export default function Colors(theme){
+    switch (theme) {
+        case "light":
+            return
+        case "dark":
+            return
+        default:
+            return {
+                PRIMARY : '#1779ba',
+                SECONDARY : '#767676',
+                WHITE : '#FFFFFF',
+                BLACK : '#000000',
+                
+                // ACTIONS
+                SUCCESS : '#3adb76',
+                WARNING : '#ffae00',
+                ALERT : '#cc4b37',
 
-// ACTIONS
-export const SUCCESS = '#3adb76';
-export const WARNING = '#ffae00';
-export const ALERT = '#cc4b37';
-
-// GRAYSCALE
-export const GRAY_LIGHT = '#e6e6e6';
-export const GRAY_MEDIUM = '#cacaca';
-export const GRAY_DARK = '#8a8a8a';
+                // GRAYSCALE
+                GRAY_LIGHT : '#e6e6e6',
+                constGRAY_MEDIUM : '#cacaca',
+                constGRAY_DARK : '#8a8a8a'
+            }
+    }
+}
