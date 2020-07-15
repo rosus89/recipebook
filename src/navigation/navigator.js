@@ -39,8 +39,9 @@ const Tab = createBottomTabNavigator();
             })}
             tabBarOptions={{
                 inactiveBackgroundColor: theme.navigator.background.inactive,
-                activeTintColor: 'tomato',
-                inactiveTintColor: 'gray',
+                activeBackgroundColor: theme.navigator.background.active,
+                activeTintColor: theme.navigator.text.active,
+                inactiveTintColor: theme.navigator.text.inactive,
                 keyboardHidesTabBar: true
             }}
         >
