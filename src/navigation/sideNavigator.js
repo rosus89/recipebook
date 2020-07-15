@@ -1,13 +1,21 @@
 import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import Home from '../index'
+// import Home from '../index';
+import  Navigator  from './navigator';
+import {SideDrawer} from 'components/containers';
+import {withTheme} from 'hooks/withTheme';
 
 const Drawer = createDrawerNavigator();
 
-export default function SideNavigator() {
-  return (
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={Home} />
-      </Drawer.Navigator>
-  );
+function SideNavigator({theme}) {
+	return (
+		<Drawer.Navigator 
+			initialRouteName="Home"
+			drawerContent={(props) =><SideDrawer  {...props} theme={theme} />} 
+		>
+			<Drawer.Screen name="Home" component={Navigator} />
+		</Drawer.Navigator>
+	);
 }
+
+export default withTheme(SideNavigator)

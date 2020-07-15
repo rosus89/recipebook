@@ -1,0 +1,40 @@
+[
+    {
+        "key": "Default",
+        "header": {
+            "background": "#FDA4A7",
+            "text": "#654243"
+        },
+        "navigator": {
+            "background":{
+                "inactive": "#250100",
+                "active": "#361211"
+            }
+        },
+        "sidebar": {
+            "background": "#250100",
+            "text": "#654243"
+        }
+    },
+    {
+        "key": "Dark",
+        "header": {
+            "background": "#000",
+            "text": "#ffffff"
+        },
+        "navigator": {
+            "background": {
+                "inactive": "#250100",
+                "active": "#361211"
+            }
+        },
+        "sidebar": {
+            "background": "#000",
+            "text": "#ffffff"
+        },
+        "container": {
+            "background": "#222",
+            "text": "#ffffff"
+        }
+    }
+]

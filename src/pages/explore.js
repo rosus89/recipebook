@@ -5,10 +5,11 @@ import { LargeTile, HeaderButton } from 'components/elements';
 import {exploreData} from '../../mockData';
 import ListRecipes from './listRecipes';
 import { createStackNavigator } from '@react-navigation/stack';
-import {Colors}  from 'styles';
+import {withTheme} from 'hooks/withTheme';
 
-const colors = Colors();
+
 const Stack = createStackNavigator();
+
 
 function ExploreView({ navigation }) {
     const [search, setSearch] = React.useState('');
@@ -47,20 +48,21 @@ function ExploreView({ navigation }) {
         );
 }
 
-export default function Explore(navigation){
- 
+function Explore({navigation, theme}){
     return (
+        
         <Stack.Navigator
             screenOptions={{
                 headerTitleStyle: {
-                    alignSelf: 'center' 
+                    alignSelf: 'center',
+                    color: theme.header.text
                 },
                 headerStyle: {
-                    backgroundColor: colors.PRIMARY
+                    backgroundColor: theme.header.background,
                 },
                 headerRight: () => (
                     <HeaderButton
-                        onPress={() => alert('opens side nav')}
+                        onPress={() => navigation.toggleDrawer()}
                     />
 
                 )
@@ -79,3 +81,5 @@ export default function Explore(navigation){
         </Stack.Navigator>
     )
 }
+
+export default withTheme(Explore)

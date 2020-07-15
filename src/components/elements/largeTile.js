@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { ImageBackground, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import { withTheme } from 'hooks/withTheme';
 
 
 
 
-export default function LargeTile({image, title, onPress}){
+function LargeTile({image, title, onPress, theme}){
     return(
         <TouchableOpacity
             key={title}
@@ -13,7 +14,7 @@ export default function LargeTile({image, title, onPress}){
         >
             <ImageBackground
                 source={image}
-                style={styles.tileImage}
+                style={[styles.tileImage, { backgroundColor: theme.container.background }]}
             >
                 <Text
                     style={styles.tileTitle}
@@ -27,7 +28,7 @@ export default function LargeTile({image, title, onPress}){
 
 const styles = StyleSheet.create({
     wrapper: {
-        marginTop: 6,
+        paddingTop: 6,
         flex: 1
     },
 
@@ -47,3 +48,5 @@ const styles = StyleSheet.create({
         flex: 1
     }
 });
+
+export default withTheme(LargeTile);

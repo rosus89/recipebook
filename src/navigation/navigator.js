@@ -1,10 +1,12 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Explore, MyRecipes, MyKitchen, ShoppingList } from 'pages'
-import { Icon } from 'react-native-elements'
+import { Explore, MyRecipes, MyKitchen, ShoppingList } from 'pages';
+import { Icon } from 'react-native-elements';
+import { withTheme } from 'hooks/withTheme';
+
 const Tab = createBottomTabNavigator();
 
-export default function Navigator() {
+ function Navigator({theme}) {
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -36,8 +38,10 @@ export default function Navigator() {
                 },
             })}
             tabBarOptions={{
+                inactiveBackgroundColor: theme.navigator.background.inactive,
                 activeTintColor: 'tomato',
                 inactiveTintColor: 'gray',
+                keyboardHidesTabBar: true
             }}
         >
             <Tab.Screen name="Explore" component={Explore} />
@@ -47,3 +51,5 @@ export default function Navigator() {
         </Tab.Navigator>
     );
 }
+
+export default withTheme(Navigator);
