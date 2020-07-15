@@ -1,5 +1,5 @@
-import List from './list';
+import SideDrawer from './sideDrawer';
 
 export {
-    List
+    SideDrawer
 }
